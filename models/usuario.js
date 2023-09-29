@@ -30,6 +30,10 @@ const usuarioSchema = Schema({
         type: Boolean,
         default: false,
     },
+    estado: {
+        type: Boolean,
+        default: true,
+    }
 });
 
 usuarioSchema.methods.toJSON = function () {
