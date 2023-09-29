@@ -32,7 +32,7 @@ const usuarioSchema = Schema({
     },
     estado: {
         type: Boolean,
-        default: true,
+        default: true
     }
 });
 
