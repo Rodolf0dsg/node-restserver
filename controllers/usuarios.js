@@ -94,7 +94,7 @@ const usuariosPut = async( req, res = response ) => { //actualizar
     });
 }
 
-const usuariosDelete = async( req, res = response ) => { //eliminar
+const usuariosDelete = async( req = request, res = response ) => { //eliminar
 
     const { id } = req.params;
 
@@ -102,10 +102,9 @@ const usuariosDelete = async( req, res = response ) => { //eliminar
     // const usuario = await Usuario.findByIdAndDelete( id );
 
     const usuario = await Usuario.findByIdAndUpdate( id , { estado: false });
+    // const usuarioAutenticado = req.usuario;
 
-    res.json({
-        usuario,
-    });
+    res.json( usuario );
 }
 
 const usuariosPatch = ( req, res = response ) => { //eliminar

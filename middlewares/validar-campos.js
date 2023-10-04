@@ -6,7 +6,9 @@ const validarCampos = ( req, res, next ) => {
     const errors = validationResult(req); //se importa de express-validator
 
     if ( !errors.isEmpty() ) { //si errores NO esta vacio, significa que huvieron errores
-        return res.status(400).json(errors)
+        console.log('Hola');
+        return res.status(400).json(errors);
+        
     }
 
     next(); 
