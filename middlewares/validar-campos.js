@@ -8,7 +8,6 @@ const validarCampos = ( req, res, next ) => {
     if ( !errors.isEmpty() ) { //si errores NO esta vacio, significa que huvieron errores
         console.log('Hola');
         return res.status(400).json(errors);
-        
     }
 
     next(); 
