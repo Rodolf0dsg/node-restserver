@@ -1,3 +1,7 @@
 node_modules/
 
+models/producto.js
+controllers/productos.js
+routes/productos.js
+
 .env

@@ -83,7 +83,7 @@ const usuariosPut = async( req, res = response ) => { //actualizar
         const salt = bcrypt.genSaltSync() //number of rounds to use, defaults to 10 if omitted
         //Synchronously generates a salt. Rounds es vueltas de encriptacion
     
-        resto.password = bcrypt.hashSync( password , salt );// hashSync encripta en 1 sola via  
+        resto.password = bcrypt.hashSync( password , salt ); // hashSync encripta en 1 sola via  
     }
 
     const usuario = await Usuario.findByIdAndUpdate( id, resto ); //actualiza usuario por id

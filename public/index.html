@@ -47,7 +47,7 @@
                 .then( resp => resp.json() )
                 .then( resp => { 
                     console.log(resp) 
-                    localStorage.setItem('email', resp.usuario.correo )
+                    localStorage.setItem('email', resp.usuario.correo ) // se define el email en el localstorage, este correo sera la sesion
                 } )
                 .catch( console.warn )
 
@@ -59,7 +59,7 @@
 
             google.accounts.id.disableAutoSelect();
 
-            google.accounts.id.revoke( localStorage.getItem('email'), done => {
+            google.accounts.id.revoke( localStorage.getItem('email'), done => { //se revoca la sesion con el correo guardado en el localStorage
                 localStorage.clear();
                 location.reload();
             } )
