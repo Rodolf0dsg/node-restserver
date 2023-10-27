@@ -99,20 +99,14 @@ const actualizarCategoria = async( req = request, res = response) => {
 
 const borrarCategoria = async( req = request, res = response) => {
 
-    try {
-        const { id } = req.params;
+    const { id } = req.params;
 
-        const categoria = await Categoria.findByIdAndUpdate( id, { estado: false }, { new: true } );
-    
-        return res.json({
-            categoria
-        })
+    const categoria = await Categoria.findByIdAndUpdate( id, { estado: false }, { new: true } );
 
-    } catch (error) {
-        console.log( error );
+    return res.json({
+        categoria
+    })
 
-        return res.status(401);
-    }
 }
 
 
