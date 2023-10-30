@@ -13,7 +13,7 @@ class Server {
             usuarios:   '/api/usuarios',
             categorias: '/api/categorias',
             productos:  '/api/productos',
-            buscar: 'api/buscar',
+            buscar:     '/api/buscar',
         }
 
         this.usuariosPath = '/api/usuarios';
