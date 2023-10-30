@@ -34,8 +34,6 @@ const obtenerCategoria = async( req = request , res = response ) => {
 
     const { id } = req.params;
 
-    console.log( 'hola marico', req.paramas );
-
     const categoria = await Categoria.findById( id )
         .populate( 'usuario', 'nombre' ) //para ver el nombre de quien creo esa categoria
 
@@ -83,7 +81,6 @@ const actualizarCategoria = async( req = request, res = response) => {
 
     const { estado, usuario, ...data } = req.body;
 
-    // console.log( data.nombre, data )
 
     data.nombre  = data.nombre.toUpperCase();
     data.usuario = req.usuario._id

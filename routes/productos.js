@@ -28,6 +28,7 @@ router.get('/:id', [
 
 router.post('/',[
     validarJWT,
+    check('nombre', 'El nombre es obligatorio').not().isEmpty(),
     check('categoria', 'La categoria es obligatoria').not().isEmpty(),
     check('categoria', 'No es un id de mongo valido').isMongoId(),
     check('categoria').custom( existeCategoria ),
@@ -40,17 +41,16 @@ router.put('/:id', [
     check('id', 'No hay id en la peticion').not().isEmpty(),
     check('id', 'No es un id de Mongo valido').isMongoId(),
     check('id').custom( existeProducto ),
-    check('nombre', 'Nombre es obligatorio').not().isEmpty(),
     validarCampos
 ], actualizarProducto )
 
 
-router.delete('/', [
+router.delete('/:id', [
     validarJWT,
     esAdminRole,
     check('id', 'No es un id de Mongo valido').isMongoId(),
     check('id').custom( existeProducto ),
     validarCampos,
-], eliminarProducto)
+], eliminarProducto )
 
 module.exports = router;

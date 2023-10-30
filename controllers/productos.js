@@ -29,8 +29,6 @@ const obtenerProducto = async ( req = request, res = response ) => {
 
     const { id } = req.params;
 
-    console.log( 'hola marico', req.paramas );
-
     const producto = await Producto.findById( id )
         .populate( 'usuario', 'nombre' ) //para ver el nombre de quien creo esa producto
         .populate( 'categoria', 'nombre' ) ;
@@ -43,7 +41,7 @@ const crearProducto = async( req = request, res = response ) => {
 
     const { estado, usuario, ...body } = req.body;
 
-    const nombre = req.body.nombre.toUpperCase();
+    const nombre = body.nombre.toUpperCase();
 
     const productoDB = await Producto.findOne({ nombre })
 
@@ -64,7 +62,7 @@ const crearProducto = async( req = request, res = response ) => {
     console.log( data );
     
 
-    const producto = await new Producto({ data });
+    const producto = await new Producto( data );
 
     await producto.save();
 

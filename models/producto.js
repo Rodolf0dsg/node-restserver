@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose')
+const { Schema, model } = require('mongoose');
 
 const ProductoSchema = Schema({
     nombre: {
@@ -25,14 +25,8 @@ const ProductoSchema = Schema({
         ref: 'Categoria', //hacia donde va a apuntar la relacion
         required: true,
     },
-    descripcion: {
-        type: String,
-
-    },
-    disponible: {
-        type: Boolean,
-        default: true,
-    }
+    descripcion: { type: String },
+    disponible: { type: Boolean, default: true }
 })
 
 ProductoSchema.methods.toJSON = function () {
