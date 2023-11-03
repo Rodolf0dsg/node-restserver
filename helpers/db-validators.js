@@ -47,6 +47,24 @@ const existeProducto = async( id ) => {
     if( !existe ){
         throw new Error(`El producto no existe en la bdd`)
     }
+
+    
+}
+
+/**
+ * Validar Colecciones permitidas
+ */
+
+const coleccionesPermitidas = ( coleccion = '', colecciones = [] ) => {
+
+    const incluida = colecciones.includes( coleccion );
+
+    if ( !incluida ) {
+        throw new Error(`Coleccion ${ coleccion } no permitida`)
+    }
+
+    return true; // por alguna razon esta funcion si no se le coloca el return true no funciona bien
+
 }
 
 
@@ -55,5 +73,6 @@ module.exports = {
     existeEmail,
     existeUsuarioPorId,
     existeCategoria,
-    existeProducto
+    existeProducto,
+    coleccionesPermitidas
 }
